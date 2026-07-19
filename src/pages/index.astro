@@ -1,0 +1,316 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Pomodoro - Análisis de Productividad">
+  <style>
+    .wrapper {
+      min-height: 100vh;
+      padding: 32px 20px 56px;
+      background: transparent;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(99, 102, 241, 0.18);
+      border-radius: 28px;
+      padding: 56px 40px 44px;
+      box-shadow: 0 28px 80px rgba(15, 23, 42, 0.14);
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      line-height: 1;
+      margin-bottom: 16px;
+      text-align: center;
+      color: #1e293b;
+      letter-spacing: -0.04em;
+    }
+
+    .emoji {
+      font-size: 4.2rem;
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #475569;
+      font-size: 1.05rem;
+      margin-bottom: 36px;
+    }
+
+    .section {
+      margin-bottom: 34px;
+    }
+
+    .section h2 {
+      color: #312e81;
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+      border-bottom: 1px solid rgba(99, 102, 241, 0.18);
+      padding-bottom: 12px;
+    }
+
+    .section p {
+      color: #334155;
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+
+    .lead {
+      max-width: 860px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .preview-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .shot-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.96));
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      border-radius: 22px;
+      padding: 14px;
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
+    }
+
+    .shot-card img {
+      display: block;
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 1px solid rgba(148, 163, 184, 0.16);
+    }
+
+    .shot-caption {
+      margin-top: 12px;
+    }
+
+    .shot-caption strong {
+      display: block;
+      color: #0f172a;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .shot-caption p {
+      margin: 0;
+      color: #475569;
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .features-list {
+      list-style: none;
+      margin: 20px 0;
+    }
+
+    .features-list li {
+      padding: 10px 0;
+      padding-left: 30px;
+      position: relative;
+      color: #334155;
+    }
+
+    .features-list li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #4f46e5;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .tech-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .badge {
+      background: rgba(79, 70, 229, 0.08);
+      color: #3730a3;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid rgba(79, 70, 229, 0.2);
+    }
+
+    .highlight {
+      color: #4338ca;
+      font-weight: 600;
+    }
+
+    .image-note {
+      margin-top: 16px;
+      padding: 16px 18px;
+      border-left: 4px solid #6366f1;
+      background: rgba(99, 102, 241, 0.06);
+      border-radius: 14px;
+      color: #334155;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 30px;
+      border-top: 2px solid #eee;
+      color: #999;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .card {
+        padding: 28px 18px 24px;
+      }
+
+      .emoji {
+        font-size: 3rem;
+      }
+
+      .preview-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .shot-card img {
+        height: 220px;
+      }
+    }
+  </style>
+
+  <div class="wrapper">
+    <div class="card">
+      <div class="emoji">⏱️</div>
+      <h1>Pomodoro</h1>
+      <p class="subtitle">Análisis de Productividad</p>
+
+      <div class="section">
+        <h2>¿De Qué Se Trata?</h2>
+        <p class="lead">
+          Una <span class="highlight">aplicación web</span> que implementa la técnica Pomodoro con <span class="highlight">análisis avanzado de productividad</span>. Temporizadores configurables, categorización de tareas, estadísticas en tiempo real y reportes semanales personalizados.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>Vista Del Proyecto</h2>
+        <div class="preview-grid">
+          <figure class="shot-card">
+            <img src="/images/pomodoro.png" alt="Vista principal del temporizador Pomodoro" />
+            <figcaption class="shot-caption">
+              <strong>Temporizador concentrado</strong>
+              <p>Una pantalla limpia para iniciar sesiones, mantener el foco y volver rápido al flujo de trabajo.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="shot-card">
+            <img src="/images/dashboard.png" alt="Panel de estadísticas y análisis de productividad" />
+            <figcaption class="shot-caption">
+              <strong>Dashboard de análisis</strong>
+              <p>La vista de datos resume progreso, patrones y métricas para decidir cómo ajustar tus sesiones.</p>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="image-note">
+          Estas dos vistas muestran el recorrido completo: primero enfocas una tarea y después revisas el rendimiento para mejorar tu rutina.
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>¿Qué Hace?</h2>
+        <ul class="features-list">
+          <li>⏲️ Temporizador Pomodoro configurable (trabajo, descanso corto, descanso largo)</li>
+          <li>📁 Gestión de categorías personalizadas con colores</li>
+          <li>📊 Dashboard con gráficos interactivos (Chart.js)</li>
+          <li>📈 Estadísticas: pomodoros por día, productividad por categoría, franjas horarias</li>
+          <li>🔥 Mapa de calor mensual mostrando intensidad de sesiones</li>
+          <li>📋 Reporte semanal con insights personalizados</li>
+          <li>🔔 Notificaciones visuales y sonoras</li>
+          <li>💾 Almacenamiento local - sin servidores, 100% privado</li>
+          <li>📱 Responsivo: funciona en mobile, tablet y desktop</li>
+          <li>⚙️ Configuración personalizable</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Características Principales</h2>
+        <p><span class="highlight">Temporizador:</span> Tres modos (Trabajo, Descanso Corto, Descanso Largo) con duraciones ajustables de 1-60 minutos. Pausa visual clara.</p>
+        <p><span class="highlight">Categorías:</span> Organiza sesiones por categoría (Estudio, Proyecto, Personal, etc.) con colores personalizados.</p>
+        <p><span class="highlight">Estadísticas:</span> Visualiza productividad con 4 gráficos: pomodoros por día, distribución por categoría, franjas horarias productivas, mapa de calor mensual.</p>
+        <p><span class="highlight">Reporte Semanal:</span> Comparativa con semana anterior, análisis por categoría, recomendaciones personalizadas.</p>
+        <p><span class="highlight">Privacidad Total:</span> Todo se guarda en localStorage del navegador. Sin conexión a servidores. Tus datos son solo tuyos.</p>
+      </div>
+
+      <div class="section">
+        <h2>Tecnologías Usadas</h2>
+        <div class="tech-badges">
+          <span class="badge">JavaScript ES6+</span>
+          <span class="badge">HTML5</span>
+          <span class="badge">CSS3</span>
+          <span class="badge">Chart.js</span>
+          <span class="badge">localStorage</span>
+          <span class="badge">Vite</span>
+          <span class="badge">Jest</span>
+          <span class="badge">Web Notifications</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Estructura del Código</h2>
+        <p>Arquitectura <span class="highlight">modular y limpia</span>:</p>
+        <ul class="features-list">
+          <li>Controllers - Lógica de negocio</li>
+          <li>Models - Estructuras de datos</li>
+          <li>Views - Renderizado DOM</li>
+          <li>Modules - Funcionalidades reutilizables</li>
+          <li>Event Emitter - Sistema de eventos central</li>
+          <li>Storage Module - Persistencia local</li>
+          <li>Stats Module - Cálculos de productividad</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Casos de Uso</h2>
+        <ul class="features-list">
+          <li>👨‍💼 Trabajadores remotos optimizando su tiempo</li>
+          <li>🎓 Estudiantes organizando sesiones de estudio</li>
+          <li>🏢 Equipos comprendiendo patrones de productividad</li>
+          <li>💪 Cualquiera buscando mejorar su gestión del tiempo</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Por Qué Es Especial</h2>
+        <ul class="features-list">
+          <li> No necesita cuenta ni registro</li>
+          <li> Funciona completamente offline</li>
+          <li> Privacidad garantizada (datos locales)</li>
+          <li> Interfaz limpia e intuitiva</li>
+          <li> Gráficos profesionales interactivos</li>
+          <li> Insights inteligentes personalizados</li>
+          <li> Testing unitario completo (Jest)</li>
+          <li> Código modular y mantenible</li>
+        </ul>
+      </div>
+
+      <div class="footer">
+        <p>Desarrollado por Luis Antonio Avila Mares 382833</p>
+        <p style="margin-top: 10px; font-size: 0.8rem;">⚡ JavaScript • React • Full-Stack</p>
+      </div>
+    </div>
+  </div>
+</Layout>
